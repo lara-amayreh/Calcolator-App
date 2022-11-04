@@ -34,23 +34,28 @@ main {
 }
 
 .in .input-screen {
-    width: 50%;
+    width: 200px;
     height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
     background-color: rgb(30, 220, 226);
     border: 1px solid black;
     font-size: 20px;
-    text-align: end;
     overflow: hidden;
     padding: 5px;
 
 
 }
 
-.clear-btn {
+.clear-btn,
+.clear-end {
     background-color: red;
     color: white;
-    padding: 3px 30px;
+    padding: 5px 15px;
     text-align: center;
+    border-radius: 3px;
 }
 
 .content {
@@ -78,6 +83,7 @@ main {
     padding: 10px 20px;
     border: 1px solid black;
     color: white;
+    border-radius: 3px;
 }
 
 .content .num,
@@ -98,8 +104,11 @@ main {
 
 }
 
-.active {
+.active:hover {
     outline: 2px solid black;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+    transition: 0.1s;
 
 
 }

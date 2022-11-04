@@ -12,8 +12,8 @@ function checkInput(input) {
   else checkOperator(curVal);
 }
 
-function displayEquation(equation) {
-  resultScreen.innerHTML = equation;
+function displayEquation(Equation) {
+  resultScreen.innerHTML = Equation;
 }
 
 function addinput(curVal) {
@@ -23,8 +23,6 @@ function addinput(curVal) {
 
 function displayResult(equation) {
   result = eval(equation);
-  equation = "";
-  equation = result;
   displayEquation(result);
   curVal = result;
   preOp = "=";
@@ -45,8 +43,13 @@ function addOperator() {
 function checkOperator(curVal) {
   preval = equation.slice(-1);
   switch (curVal) {
-    case "c": {
+    case "C": {
       reset();
+      break;
+    }
+    case "CE": {
+      equation = equation.slice(0, -1);
+      displayEquation(equation);
       break;
     }
     case "+":
@@ -57,7 +60,10 @@ function checkOperator(curVal) {
       break;
     }
     case "=": {
-      if (!isNaN(preval) && equation !== "") displayResult(equation);
+      if (!isNaN(preval) && equation !== "") {
+        displayResult(equation);
+        equation = result + "";
+      }
       break;
     }
 
